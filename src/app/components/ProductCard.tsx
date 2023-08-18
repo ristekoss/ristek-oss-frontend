@@ -54,6 +54,8 @@ function ProductCard({
         </div>
 
         <div className="buttons-container ml-auto flex flex-row gap-3">
+            
+          {(githubLink === "")? null :
           <a
             href={githubLink}
             target="_blank"
@@ -65,7 +67,7 @@ function ProductCard({
               width={20}
               height={20}
             />
-          </a>
+          </a>}
 
           <a
             href={appLink}

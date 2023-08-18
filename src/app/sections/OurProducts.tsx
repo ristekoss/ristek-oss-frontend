@@ -46,7 +46,7 @@ export default function OurProducts(props : any) {
       platform: "Web",
       description:
         "Experience the Convenience of Riding Bikun with Bikun Tracker! With Bikun Tracker, you no longer have to worry about when Bikun will come or stress about its arrival schedule.",
-      githubLink: "https://www.github.com",
+      githubLink: "",
       appLink: "https://bikun.ui.ac.id/",
     },
     {
