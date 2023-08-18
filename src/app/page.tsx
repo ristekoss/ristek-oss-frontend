@@ -30,7 +30,7 @@ export default function Home() {
     <>  
         { modal &&
 
-            <div className="fixed z-20 w-[100%] h-[100%] flex items-center justify-center ">
+            <div className="fixed z-[14] w-[100%] h-[100%] flex items-center justify-center ">
                 <div className="fixed w-[100%] h-[100%] bg-black opacity-30" onClick={() =>showModal(false)}></div>
                 <Modal modal={() => showModal(!modal)} modalApp={modalApp}/>
             </div>  
