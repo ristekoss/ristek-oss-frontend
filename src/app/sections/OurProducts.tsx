@@ -118,34 +118,36 @@ export default function OurProducts(props : any) {
       className="bg-[#3C317E] h-[800px] px-5 py-32 xl:px-16 xl:py-[156.5px] flex flex-col justify-center gap-10 md:gap-0 overflow-hidden md:h-[1200px] md:p-0 md:justify-between xl:h-[800px]"
     >
 
-      <div className="absolute w-full h-[800px] md:h-[1200px] xl:h-[800px] left-0 flex justify-center items-center md:flex-col md:gap-80 xl:gap-40 overflow-hidden">
-        <Image
-          className="scale-110 md:hidden"
-          src="assets/oss-logo.svg"
-          alt=""
-          width={396}
-          height={695}
-        />
+        <div className="absolute w-full h-[800px] md:h-[1200px] xl:h-[800px] left-0 flex justify-center items-center md:flex-col md:gap-80 xl:gap-40 sm:overflow-visible overflow-hidden">
+            
+            <Image
+                className="scale-110 md:hidden"
+                src="assets/oss-logo.svg"
+                alt=""
+                width={396}
+                height={695}
+            />
 
-        <div className="hidden w-full md:flex flex-row justify-start">
-          <Image
-            className=""
-            src="assets/oss-logo.svg"
-            alt=""
-            width={396}
-            height={695}
-          />
+        <div className="hidden relative w-full md:flex flex-row justify-start">
+            <Image
+                className=""
+                src="assets/oss-logo.svg"
+                alt=""
+                width={396}
+                height={695}
+            />
         </div>
         
-        <div className="hidden w-full md:flex flex-row justify-end xl:relative xl:bottom-72">
-          <Image
-            className=""
-            src="assets/oss-logo.svg"
-            alt=""
-            width={396}
-            height={695}
-          />
+        <div className="hidden relative w-full md:flex flex-row justify-end xl:bottom-72">
+            <Image
+                className=""
+                src="assets/oss-logo.svg"
+                alt=""
+                width={396}
+                height={695}
+            />
         </div>
+
       </div>
 
       {/* <Image
@@ -226,7 +228,7 @@ export default function OurProducts(props : any) {
 
         <div
           id="carousel-card-product"
-          className="md:flex md:flex-row md:items-center md:justify-center md:gap-3"
+          className="md:flex md:flex-row md:items-center md:justify-center xl:gap-8 gap-5"
         >
           <button
             className="hidden bg-white rounded-full w-16 h-16 md:block"
@@ -319,7 +321,7 @@ export default function OurProducts(props : any) {
                 height={52}
               />
             </button>
-          </div>
+         </div>
         </div>
 
       </div>
