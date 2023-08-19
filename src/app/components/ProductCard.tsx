@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 
 interface Props {
@@ -14,6 +13,7 @@ interface Props {
   modal: Function;
   modalApp: Function
 }
+
 
 function ProductCard({
   name,

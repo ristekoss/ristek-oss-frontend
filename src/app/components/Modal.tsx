@@ -108,22 +108,24 @@ export default function Modal(props : any) : JSX.Element {
     }
 
     return (
-            <div className="fade fixed mt-[64px] flex flex-col items-center sm:gap-[20px] md:gap-[40px] gap-[12px] sm:p-[40px] md:p-[60px] p-[20px] w-[90%] sm:max-h-[564px] max-h-[664px] rounded-[20px] bg-white">
-                <div className="flex flex-row w-full justify-between">
-                    <img src={"/icons/cross_box.svg"} className="invisible lg:block hidden"></img>
-                    <p className="font-bold lg:text-[60px] sm:text-[36px] text-[24px]">
-                        People Behind This Product!
-                    </p>
-                    <img src={"/icons/cross_box.svg"} onClick={() => props.modal()} className="cursor-pointer"></img>
-                </div>
-                <div className="flex flex-wrap gap-[20px] w-full justify-center overflow-auto 
-                                pt-[8px] pb-[8px]">
-                    {app.map((contributors, index) => {
-                        return (
-                        <ContributorsCard url={contributors.url} name={contributors.name} role={contributors.role} key={index}/>
-                        )
-                    })}
-                </div>
+        <div className="fade fixed mt-[64px] flex flex-col items-center sm:gap-[20px] md:gap-[40px] gap-[12px] sm:p-[40px] md:p-[60px] p-[20px] w-[90%] sm:max-h-[564px] max-h-[80%] rounded-[20px] bg-white">
+            <div className="flex flex-row w-full justify-between">
+                <img src={"/icons/cross_box.svg"} className="invisible lg:block hidden"></img>
+                <p className="font-bold lg:text-[60px] sm:text-[36px] text-[24px]">
+                    People Behind This Product!
+                </p>
+                <img src={"/icons/cross_box.svg"} onClick={() => props.modal()} className="cursor-pointer"></img>
             </div>
+            <div className="flex flex-wrap gap-[20px] w-full justify-center overflow-auto 
+                            pt-[8px] pb-[8px]
+                            sm:pl-0 pl-[8px]
+                            sm:pr-0 pr-[8px]">
+                {app.map((contributors, index) => {
+                    return (
+                    <ContributorsCard url={contributors.url} name={contributors.name} role={contributors.role} key={index}/>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
