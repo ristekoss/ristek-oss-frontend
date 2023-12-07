@@ -1,131 +1,77 @@
+import { useEffect, useState } from "react";
 import ContributorsCard from "./ContributorsCard";
+import { Contributors } from "../type";
 
-interface Contributors {
-    url : string,
-    name : string,
-    role : string
-}
+export default function Modal(props: any): JSX.Element {
+  const [contributors, setContributors] = useState<Contributors[] | null>(null);
 
-export default function Modal(props : any) : JSX.Element {
+  useEffect(() => {
+    const options: RequestInit = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`,
+      },
+    };
 
-    const susunJadwal : Contributors[] = [
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Susun Jadwal",
-            role:"Designer"
-        }
-    ]
-    
-    const bikunTracker : Contributors[] = [
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Bikun Tracker",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Bikun Tracker",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Bikun Tracker",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Bikun Tracker",
-            role:"Designer"
-        }
-    ] 
-
-    const ristekLink : Contributors[] = [
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Ristek Link",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Ristek Link",
-            role:"Designer"
-        },
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Ristek Link",
-            role:"Designer"
-        }
-    ] 
-
-    const ulasKelas : Contributors[] = [
-        {
-            url:"/images/placeholder.png",
-            name:"Tukang Ulas Kelas",
-            role:"Designer"
-        }
-    ] 
-
-    let app;
-
-    if (props.modalApp === 'Susun Jadwal') {
-        app = susunJadwal
-    } else if (props.modalApp === 'Bikun Tracker') {
-        app = bikunTracker
-    } else if (props.modalApp === 'Ristek Link') {
-        app = ristekLink
-    } else {
-        app = ulasKelas
+    if (props.modalApp === "Susun Jadwal") {
+      fetch(
+        `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/susunjadwal-frontend/contributors`,
+        options
+      )
+        .then((res) => res.json())
+        .then(async (resJson) => setContributors(resJson));
+    } else if (props.modalApp === "Bikun Tracker") {
+    } else if (props.modalApp === "Ristek Link") {
+      fetch(
+        `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/ristek-link/contributors`,
+        options
+      )
+        .then((res) => res.json())
+        .then((resJson) => setContributors(resJson));
+    } else if (props.modalApp === "Ulas Kelas") {
+      fetch(
+        `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/ulaskelas-frontend/contributors`,
+        options
+      )
+        .then((res) => res.json())
+        .then((resJson) => setContributors(resJson));
     }
+  }, [props.modalApp]);
 
-    return (
-        <div className="fade fixed mt-[64px] flex flex-col items-center sm:gap-[20px] md:gap-[40px] gap-[12px] sm:p-[40px] md:p-[60px] p-[20px] w-[90%] sm:max-h-[564px] max-h-[80%] rounded-[20px] bg-white">
-            <div className="flex flex-row w-full justify-between">
-                <img src={"/icons/cross_box.svg"} className="invisible lg:block hidden"></img>
-                <p className="font-bold lg:text-[60px] sm:text-[36px] text-[24px]">
-                    People Behind This Product!
-                </p>
-                <img src={"/icons/cross_box.svg"} onClick={() => props.modal()} className="cursor-pointer"></img>
-            </div>
-            <div className="flex flex-wrap gap-[20px] w-full justify-center overflow-auto 
+  return (
+    <div className="fade fixed mt-[64px] flex flex-col items-center sm:gap-[20px] md:gap-[40px] gap-[12px] sm:p-[40px] md:p-[60px] p-[20px] w-[90%] sm:max-h-[564px] max-h-[80%] rounded-[20px] bg-white">
+      <div className="flex flex-row w-full justify-between">
+        <img
+          src={"/icons/cross_box.svg"}
+          className="invisible lg:block hidden"
+        ></img>
+        <p className="font-bold lg:text-[60px] sm:text-[36px] text-[24px]">
+          People Behind This Product!
+        </p>
+        <img
+          src={"/icons/cross_box.svg"}
+          onClick={() => props.modal()}
+          className="cursor-pointer"
+        ></img>
+      </div>
+      <div
+        className="flex flex-wrap gap-[20px] w-full justify-center overflow-auto 
                             pt-[8px] pb-[8px]
                             sm:pl-0 pl-[8px]
-                            sm:pr-0 pr-[8px]">
-                {app.map((contributors, index) => {
-                    return (
-                    <ContributorsCard url={contributors.url} name={contributors.name} role={contributors.role} key={index}/>
-                    )
-                })}
-            </div>
-        </div>
-    )
+                            sm:pr-0 pr-[8px]"
+      >
+        {contributors
+          ? contributors.map((contributor, index) => {
+              return (
+                <ContributorsCard
+                  contributor={contributor}
+                  key={index}
+                />
+              );
+            })
+          : null}
+      </div>
+    </div>
+  );
 }
