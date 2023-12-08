@@ -51,7 +51,7 @@ export default function Modal(props: any): JSX.Element {
         <img
           src={"/icons/cross_box.svg"}
           onClick={() => props.modal()}
-          className="cursor-pointer"
+          className="cursor-pointer w-[48px]"
         ></img>
       </div>
       <div
