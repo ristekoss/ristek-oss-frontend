@@ -14,17 +14,6 @@ export default function ContributorsCard({ contributor }: Props): JSX.Element {
       href={contributor.html_url}
       target="_blank"
     >
-      {/* <div
-        className="sm:w-[160px] w-[120px] sm:h-[106px] h-[80px]"
-        style={{ background: `url(${contributors.avatar_url})` }}
-      ></div> */}
-      {/* <Image
-        src={contributors.avatar_url}
-        alt={`${contributors.login}'s profile picture`}
-        width={460}
-        height={460}
-      /> */}
-
       <img
         src={contributor.avatar_url}
         alt={`${contributor.login}'s profile picture`}
@@ -35,7 +24,6 @@ export default function ContributorsCard({ contributor }: Props): JSX.Element {
         <p className="font-bold text-base text-[#45349F]">
           {contributor.login}
         </p>
-        {/* <p className="font-normal text-base text-[#45349F]">{role}</p> */}
       </div>
     </a>
   );
