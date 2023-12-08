@@ -21,7 +21,6 @@ export default function Modal(props: any): JSX.Element {
       )
         .then((res) => res.json())
         .then(async (resJson) => setContributors(resJson));
-    } else if (props.modalApp === "Bikun Tracker") {
     } else if (props.modalApp === "Ristek Link") {
       fetch(
         `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/ristek-link/contributors`,

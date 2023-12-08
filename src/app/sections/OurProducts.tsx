@@ -16,8 +16,7 @@ interface Products {
   appLink: string;
 }
 
-
-export default function OurProducts(props : any) {
+export default function OurProducts(props: any) {
   const initialSlide = 0;
   const [productShowIndex, setProductShowIndex] =
     useState<number>(initialSlide);
@@ -36,18 +35,6 @@ export default function OurProducts(props : any) {
         "Universitas Indonesia's #1 student course planning app with over 500 thousand users across 14 faculties.",
       githubLink: "https://github.com/ristekoss/susunjadwal-frontend",
       appLink: "https://susunjadwal.cs.ui.ac.id",
-    },
-    {
-      name: "Bikun Tracker",
-      imageSrc: "icons/bikun-tracker.svg",
-      imageAlt: "Bikun Tracker",
-      imageWidth: 225,
-      publishedYear: "2023",
-      platform: "Web",
-      description:
-        "Experience the Convenience of Riding Bikun with Bikun Tracker! With Bikun Tracker, you no longer have to worry about when Bikun will come or stress about its arrival schedule.",
-      githubLink: "",
-      appLink: "https://bikun.ui.ac.id/",
     },
     {
       name: "Ristek Link",
@@ -113,44 +100,41 @@ export default function OurProducts(props : any) {
 
   return (
     <>
-    <div
-      id="products"
-      className="bg-[#3C317E] h-[800px] px-5 py-32 xl:px-16 xl:py-[156.5px] flex flex-col justify-center gap-10 md:gap-0 overflow-hidden md:h-[1200px] md:p-0 md:justify-between xl:h-[800px]"
-    >
-
+      <div
+        id="products"
+        className="bg-[#3C317E] h-[800px] px-5 py-32 xl:px-16 xl:py-[156.5px] flex flex-col justify-center gap-10 md:gap-0 overflow-hidden md:h-[1200px] md:p-0 md:justify-between xl:h-[800px]"
+      >
         <div className="absolute w-full h-[800px] md:h-[1200px] xl:h-[800px] left-0 flex justify-center items-center md:flex-col md:gap-80 xl:gap-40 sm:overflow-visible overflow-hidden">
-            
-            <Image
-                className="scale-110 md:hidden"
-                src="assets/oss-logo.svg"
-                alt=""
-                width={396}
-                height={695}
-            />
+          <Image
+            className="scale-110 md:hidden"
+            src="assets/oss-logo.svg"
+            alt=""
+            width={396}
+            height={695}
+          />
 
-        <div className="hidden relative w-full md:flex flex-row justify-start">
+          <div className="hidden relative w-full md:flex flex-row justify-start">
             <Image
-                className=""
-                src="assets/oss-logo.svg"
-                alt=""
-                width={396}
-                height={695}
+              className=""
+              src="assets/oss-logo.svg"
+              alt=""
+              width={396}
+              height={695}
             />
+          </div>
+
+          <div className="hidden relative w-full md:flex flex-row justify-end xl:bottom-72">
+            <Image
+              className=""
+              src="assets/oss-logo.svg"
+              alt=""
+              width={396}
+              height={695}
+            />
+          </div>
         </div>
-        
-        <div className="hidden relative w-full md:flex flex-row justify-end xl:bottom-72">
-            <Image
-                className=""
-                src="assets/oss-logo.svg"
-                alt=""
-                width={396}
-                height={695}
-            />
-        </div>
 
-      </div>
-
-      {/* <Image
+        {/* <Image
         className="absolute mx-auto"
         src="assets/oss-logo.svg"
         alt=""
@@ -166,119 +150,70 @@ export default function OurProducts(props : any) {
         height={695}
       /> */}
 
-      <div
-        id="decor-tablet-top-right"
-        className="hidden md:flex md:flex-row md:justify-end xl:hidden"
-      >
-        <div className="rotate-180">
-          <div>
-            <Image
-              src="assets/RISTEK 8.svg"
-              className="rotate-180"
-              alt=""
-              width={116}
-              height={116}
-            />
-            <Image
-              src="assets/decor-s-1.svg"
-              className="rotate-90"
-              alt=""
-              width={116}
-              height={116}
-            />
-          </div>
-          <div className="flex flex-row">
-            <Image
-              src="assets/RISTEK 3.svg"
-              className="rotate-180"
-              alt=""
-              width={116}
-              height={116}
-            />
-            <Image
-              src="assets/RISTEK 20.svg"
-              className="rotate-180"
-              alt=""
-              width={116}
-              height={116}
-            />
+        <div
+          id="decor-tablet-top-right"
+          className="hidden md:flex md:flex-row md:justify-end xl:hidden"
+        >
+          <div className="rotate-180">
+            <div>
+              <Image
+                src="assets/RISTEK 8.svg"
+                className="rotate-180"
+                alt=""
+                width={116}
+                height={116}
+              />
+              <Image
+                src="assets/decor-s-1.svg"
+                className="rotate-90"
+                alt=""
+                width={116}
+                height={116}
+              />
+            </div>
+            <div className="flex flex-row">
+              <Image
+                src="assets/RISTEK 3.svg"
+                className="rotate-180"
+                alt=""
+                width={116}
+                height={116}
+              />
+              <Image
+                src="assets/RISTEK 20.svg"
+                className="rotate-180"
+                alt=""
+                width={116}
+                height={116}
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-
-      <div className="z-10 flex flex-col gap-10">
-
-        <h1 className="font-bold text-white text-4xl w-[320px] mx-auto text-center md:text-6xl md:w-fit xl:hidden">
-          Explore Our Products!
-        </h1>
-
-        <div className="hidden xl:flex flex-row gap-10 justify-center items-center">
-          <h1 className="text-white font-bold text-center text-7xl">
+        <div className="z-10 flex flex-col gap-10">
+          <h1 className="font-bold text-white text-4xl w-[320px] mx-auto text-center md:text-6xl md:w-fit xl:hidden">
             Explore Our Products!
           </h1>
 
-          <Image
-            src="assets/decor-2.svg"
-            alt=""
-            width={321}
-            height={107}
-          />
-        </div>
+          <div className="hidden xl:flex flex-row gap-10 justify-center items-center">
+            <h1 className="text-white font-bold text-center text-7xl">
+              Explore Our Products!
+            </h1>
 
-        <div
-          id="carousel-card-product"
-          className="md:flex md:flex-row md:items-center md:justify-center xl:gap-8 gap-5"
-        >
-          <button
-            className="hidden bg-white rounded-full w-16 h-16 md:block"
-            onClick={handlePrevProduct}
-          >
             <Image
-              className="mx-auto"
-              src="icons/caret-left-fill.svg"
+              src="assets/decor-2.svg"
               alt=""
-              width={52}
-              height={52}
+              width={321}
+              height={107}
             />
-          </button>
-
-          <Slider
-            {...settings}
-            ref={sliderRef}
-            className="w-[300px] h-[347px] mx-auto flex flex-row md:w-[612px] md:mx-0 xl:w-[1120px] xl:h-[340px]"
-          >
-            {productsInfo.map((product, index) => {
-              return (
-                <ProductCard
-                  {...product}
-                  key={index}
-                  modal={props.modal}
-                  modalApp={props.modalApp}
-                />
-              );
-            })}
-          </Slider>
-
-          <button
-            className="hidden bg-white rounded-full w-16 h-16 md:block"
-            onClick={handleNextProduct}
-          >
-            <Image
-              className="mx-auto"
-              src="icons/caret-right-fill.svg"
-              alt=""
-              width={52}
-              height={52}
-            />
-          </button>
+          </div>
 
           <div
-            id="cards-navigation"
-            className="flex flex-row gap-11 justify-between md:hidden"
+            id="carousel-card-product"
+            className="md:flex md:flex-row md:items-center md:justify-center xl:gap-8 gap-5"
           >
             <button
-              className="bg-white rounded-full w-16 h-16"
+              className="hidden bg-white rounded-full w-16 h-16 md:block"
               onClick={handlePrevProduct}
             >
               <Image
@@ -290,27 +225,25 @@ export default function OurProducts(props : any) {
               />
             </button>
 
-            <div
-              id="pager-carousel-products"
-              className="flex flex-row gap-3 justify-center items-center"
+            <Slider
+              {...settings}
+              ref={sliderRef}
+              className="w-[300px] h-[347px] mx-auto flex flex-row md:w-[612px] md:mx-0 xl:w-[1120px] xl:h-[340px]"
             >
               {productsInfo.map((product, index) => {
                 return (
-                  <div
+                  <ProductCard
+                    {...product}
                     key={index}
-                    className={`w-3 h-3 ${
-                      index == productShowIndex
-                        ? "bg-[#64E6FB]"
-                        : "bg-neutral-400"
-                    } rounded-full`}
-                  ></div>
+                    modal={props.modal}
+                    modalApp={props.modalApp}
+                  />
                 );
               })}
-              {/* <div className="w-3 h-3 bg-[#64E6FB] rounded-full"></div> */}
-            </div>
+            </Slider>
 
             <button
-              className="bg-white rounded-full w-16 h-16"
+              className="hidden bg-white rounded-full w-16 h-16 md:block"
               onClick={handleNextProduct}
             >
               <Image
@@ -321,51 +254,99 @@ export default function OurProducts(props : any) {
                 height={52}
               />
             </button>
-         </div>
+
+            <div
+              id="cards-navigation"
+              className="flex flex-row gap-11 justify-between md:hidden"
+            >
+              <button
+                className="bg-white rounded-full w-16 h-16"
+                onClick={handlePrevProduct}
+              >
+                <Image
+                  className="mx-auto"
+                  src="icons/caret-left-fill.svg"
+                  alt=""
+                  width={52}
+                  height={52}
+                />
+              </button>
+
+              <div
+                id="pager-carousel-products"
+                className="flex flex-row gap-3 justify-center items-center"
+              >
+                {productsInfo.map((product, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`w-3 h-3 ${
+                        index == productShowIndex
+                          ? "bg-[#64E6FB]"
+                          : "bg-neutral-400"
+                      } rounded-full`}
+                    ></div>
+                  );
+                })}
+                {/* <div className="w-3 h-3 bg-[#64E6FB] rounded-full"></div> */}
+              </div>
+
+              <button
+                className="bg-white rounded-full w-16 h-16"
+                onClick={handleNextProduct}
+              >
+                <Image
+                  className="mx-auto"
+                  src="icons/caret-right-fill.svg"
+                  alt=""
+                  width={52}
+                  height={52}
+                />
+              </button>
+            </div>
+          </div>
         </div>
 
-      </div>
-
-      <div
-        id="decor-tablet-bottom-left"
-        className="hidden md:flex md:flex-row xl:hidden"
-      >
-        <div>
+        <div
+          id="decor-tablet-bottom-left"
+          className="hidden md:flex md:flex-row xl:hidden"
+        >
           <div>
-            <Image
-              src="assets/RISTEK 8.svg"
-              className="rotate-180"
-              alt=""
-              width={116}
-              height={116}
-            />
-            <Image
-              src="assets/decor-s-1.svg"
-              className="rotate-90"
-              alt=""
-              width={116}
-              height={116}
-            />
-          </div>
-          <div className="flex flex-row">
-            <Image
-              src="assets/RISTEK 3.svg"
-              className="rotate-180"
-              alt=""
-              width={116}
-              height={116}
-            />
-            <Image
-              src="assets/RISTEK 20.svg"
-              className="rotate-180"
-              alt=""
-              width={116}
-              height={116}
-            />
+            <div>
+              <Image
+                src="assets/RISTEK 8.svg"
+                className="rotate-180"
+                alt=""
+                width={116}
+                height={116}
+              />
+              <Image
+                src="assets/decor-s-1.svg"
+                className="rotate-90"
+                alt=""
+                width={116}
+                height={116}
+              />
+            </div>
+            <div className="flex flex-row">
+              <Image
+                src="assets/RISTEK 3.svg"
+                className="rotate-180"
+                alt=""
+                width={116}
+                height={116}
+              />
+              <Image
+                src="assets/RISTEK 20.svg"
+                className="rotate-180"
+                alt=""
+                width={116}
+                height={116}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
