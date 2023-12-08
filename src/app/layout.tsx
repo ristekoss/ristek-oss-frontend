@@ -4,6 +4,9 @@ import { Poppins } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "RISTEK Open Source",
+  icons: {
+    icon: "icons/favicon-32x32.png",
+  },
 };
 
 const poppins = Poppins({
