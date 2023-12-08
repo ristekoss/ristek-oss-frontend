@@ -7,10 +7,12 @@ interface Props {
 
 export default function ContributorsCard({ contributor }: Props): JSX.Element {
   return (
-    <div
+    <a
       className="flex w-[376px] items-start gap-2.5 
                         shadow-[0px_4px_8px_0px_rgba(0,0,0,0.20)] sm:px-5 px-3 sm:py-4 py-2.5 rounded-[20px] 
                         sm:max-w-[376px] max-w-[304px] sm:max-h-[138px] max-h-[100px]"
+      href={contributor.html_url}
+      target="_blank"
     >
       {/* <div
         className="sm:w-[160px] w-[120px] sm:h-[106px] h-[80px]"
@@ -35,6 +37,6 @@ export default function ContributorsCard({ contributor }: Props): JSX.Element {
         </p>
         {/* <p className="font-normal text-base text-[#45349F]">{role}</p> */}
       </div>
-    </div>
+    </a>
   );
 }
