@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import ContributorsCard from "./ContributorsCard";
-import { Contributors } from "../type";
+import { Contributor } from "../type";
+import { joinBackendAndFrontend } from "@/utils/utils";
 
 export default function Modal(props: any): JSX.Element {
-  const [contributors, setContributors] = useState<Contributors[] | null>(null);
+  const [contributors, setContributors] = useState<Contributor[] | null>(null);
 
   useEffect(() => {
     const options: RequestInit = {
@@ -20,21 +21,76 @@ export default function Modal(props: any): JSX.Element {
         options
       )
         .then((res) => res.json())
-        .then(async (resJson) => setContributors(resJson));
+        .then(async (frontendContributors: Contributor[]) => {
+          const backendResponse = await fetch(
+            `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/susunjadwal-backend/contributors`,
+            options
+          );
+          let backendContributors: Contributor[] = await backendResponse.json();
+
+          backendContributors = backendContributors.map(
+            (contributor: Contributor) => {
+              return { ...contributor, role: "Back-End Developer" };
+            }
+          );
+          frontendContributors = frontendContributors.map(
+            (contributor: Contributor) => {
+              return { ...contributor, role: "Front-End Developer" };
+            }
+          );
+
+          const contributors = joinBackendAndFrontend(
+            frontendContributors,
+            backendContributors
+          );
+
+          setContributors(contributors);
+        });
     } else if (props.modalApp === "Ristek Link") {
       fetch(
         `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/ristek-link/contributors`,
         options
       )
         .then((res) => res.json())
-        .then((resJson) => setContributors(resJson));
+        .then((frontendContributors) => {
+          frontendContributors = frontendContributors.map(
+            (contributor: Contributor) => {
+              return { ...contributor, role: "Front-End Developer" };
+            }
+          );
+          setContributors(frontendContributors);
+        });
     } else if (props.modalApp === "Ulas Kelas") {
       fetch(
         `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/ulaskelas-frontend/contributors`,
         options
       )
         .then((res) => res.json())
-        .then((resJson) => setContributors(resJson));
+        .then(async (frontendContributors) => {
+          const backendResponse = await fetch(
+            `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/repos/ristekoss/ulaskelas-backend/contributors`,
+            options
+          );
+          let backendContributors: Contributor[] = await backendResponse.json();
+
+          backendContributors = backendContributors.map(
+            (contributor: Contributor) => {
+              return { ...contributor, role: "Back-End Developer" };
+            }
+          );
+          frontendContributors = frontendContributors.map(
+            (contributor: Contributor) => {
+              return { ...contributor, role: "Front-End Developer" };
+            }
+          );
+
+          const contributors = joinBackendAndFrontend(
+            frontendContributors,
+            backendContributors
+          );
+
+          setContributors(contributors);
+        });
     }
   }, [props.modalApp]);
 
