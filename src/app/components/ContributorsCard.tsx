@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Contributors } from "../type";
+import { Contributor } from "../type";
 
 interface Props {
-  contributor: Contributors;
+  contributor: Contributor;
 }
 
 export default function ContributorsCard({ contributor }: Props): JSX.Element {

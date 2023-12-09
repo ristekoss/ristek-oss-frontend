@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import ContributorsCard from "../components/ContributorsCard";
-import { Contributors } from "../type";
+import { Contributor } from "../type";
 
 export default function ContributorsPage() {
-  const [contributors, setContributors] = useState<Contributors[] | null>(null);
+  const [contributors, setContributors] = useState<Contributor[] | null>(null);
 
   useEffect(() => {
     const options: RequestInit = {
@@ -20,7 +20,7 @@ export default function ContributorsPage() {
     )
       .then((res) => res.json())
       .then((resJson) => {
-        const contributors = resJson.map((contributor: Contributors) => {
+        const contributors = resJson.map((contributor: Contributor) => {
           return { ...contributor, role: "Front-End Developer" };
         });
         setContributors(contributors);
