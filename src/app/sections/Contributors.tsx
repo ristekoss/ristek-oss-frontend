@@ -19,7 +19,12 @@ export default function ContributorsPage() {
       options
     )
       .then((res) => res.json())
-      .then((resJson) => setContributors(resJson));
+      .then((resJson) => {
+        const contributors = resJson.map((contributor: Contributors) => {
+          return { ...contributor, role: "Front-End Developer" };
+        });
+        setContributors(contributors);
+      });
   }, []);
 
   return (

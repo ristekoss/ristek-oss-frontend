@@ -24,6 +24,9 @@ export default function ContributorsCard({ contributor }: Props): JSX.Element {
         <p className="font-bold text-base text-[#45349F]">
           {contributor.login}
         </p>
+        <p className="font-normal text-base text-[#45349F]">
+          {contributor.role}
+        </p>
       </div>
     </a>
   );
